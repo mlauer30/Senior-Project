@@ -25,43 +25,27 @@ fetch("http://c9x.io/BrxAPI/api/read.php", requestOptions)
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script type="text/javascript"> 
-   
+    
+    var settings = {
+      "url": "http://c9x.io/BrxAPI/api/read.php",
+      "method": "GET",
+      "timeout": 0,
+    };
 
-  $(document).ready(function(){
+    $.ajax(settings).done(function (response) {
+      console.log(response);
 
-    function loadPosts() {
-                $.ajax({
-                    type: 'GET',
-                    url: 'http://c9x.io/BrxAPI/api/read.php',
-                    dataType: 'json',
-                    success: function (data) {
-                        var items = '';
-                        $.each(data, function (i, item) {
-                            addPost(item);
-                        });
-                    },
-                    error: function (ex) {
-                        var r = jQuery.parseJSON(response.responseText);
-                        alert("Message: " + r.Message);
-                        alert("StackTrace: " + r.StackTrace);
-                        alert("ExceptionType: " + r.ExceptionType);
-                    }
-                });
-                return false;
-            }
-            loadPosts();
 
-  });
+      /*var content = response.body[0].menuItemName;
+           $("#menuItemName").append(content);*/
 
-  var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
+           for (let index = 0; index < response.body.length; index++) {
+             var content = response.body[index].menuItemName + "</br>";
+             $("#menuItemName").append(content);             
+           }
+    });
 
-  fetch("http://c9x.io/BrxAPI/api/read.php", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+
    </script>
 
 
@@ -74,10 +58,15 @@ fetch("http://c9x.io/BrxAPI/api/read.php", requestOptions)
    <h3 align="center">PHP Mysql REST API CRUD</h3>
    <br />
    <div align="right" style="margin-bottom:5px;">
-    <button id="submit" type="button" name="add_button" id="add_button" class="btn btn-success btn-xs">Add</button>
+    <button type="button" name="add_button" id="add_button" class="btn btn-success btn-xs">Add</button>
    </div>
 
-   <div class="table-responsive">
+   <div id="menuItemName">
+
+
+   </div>
+
+   <!--<div class="table-responsive">
     <table class="table table-bordered table-striped">
      <thead>
       <tr>
@@ -90,7 +79,7 @@ fetch("http://c9x.io/BrxAPI/api/read.php", requestOptions)
      <tbody></tbody>
     </table>
    </div>
-  </div>
+  </div>-->
  </body>
 
  
