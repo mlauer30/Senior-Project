@@ -1,0 +1,109 @@
+<!--<html>
+<script>
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://c9x.io/BrxAPI/api/read.php", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+</script>
+
+<h2>Hello</h2>
+  
+</html>-->
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>PHP Mysql REST API CRUD</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script type="text/javascript"> 
+    
+    var settings = {
+      "url": "http://c9x.io/BrxAPI/api/read.php",
+      "method": "GET",
+      "timeout": 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+
+
+      /*var content = response.body[0].menuItemName;
+           $("#menuItemName").append(content);*/
+            
+           for (let index = 0; index < response.body.length; index++) {
+             var content = response.body[index].menuItemName + "</br>";
+             $("#menuItemName").append(content); 
+             //$("#itemFoodCost").append(content); 
+             //$("#contributionMargin").append(content); 
+             //$("#profitCategory").append(content);             
+           }
+    });
+
+
+   </script>
+
+
+
+ </head>
+ <body>
+  <div class="container">
+   <br />
+   
+   <h3 align="center">PHP Mysql REST API CRUD</h3>
+   <br />
+   <div align="right" style="margin-bottom:5px;">
+    <button type="button" name="add_button" id="add_button" class="btn btn-success btn-xs">Add</button>
+   </div>
+
+   <div class="row">
+
+            <div id="menuItemName">
+
+
+            </div>
+            <div id="menuItemName">
+        
+        
+          </div>
+          <div id="menuItemName">
+        
+        
+          </div>
+          <div id="menuItemName">
+        
+        
+          </div>
+
+   </div>
+   
+
+   <!--<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+     <thead>
+      <tr>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Edit</th>
+       <th>Delete</th>
+      </tr>
+     </thead>
+     <tbody></tbody>
+    </table>
+   </div>
+  </div>-->
+ </body>
+
+ 
+</html>
+
+
+
