@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "8604651c-b5fe-4727-b482-5f7c105a925d",
+		"name": "BRXAPI_local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/read.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"read.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single_read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/single_read.php/?brxMenuID=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"single_read.php",
+						""
+					],
+					"query": [
+						{
+							"key": "brxMenuID",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brxMenuID\" : 8,\n    \"menuItemName\": \"Good Pizza\",\n    \"numberSold\": \"500\",\n    \"itemFoodCost\": \"$2.00\",\n    \"itemSellPrice\": \"$14.00\",\n    \"foodCostPerc\": \"50.00%\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/create.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"create.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brxMenuID\" : 4,\n    \"menuItemName\": \"White Pizza\",\n    \"numberSold\": \"500\",\n    \"itemFoodCost\": \"$2.00\",\n    \"itemSellPrice\": \"$14.00\",\n    \"foodCostPerc\": \"50.00%\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/update.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"update.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brxMenuID\" : 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/delete.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
