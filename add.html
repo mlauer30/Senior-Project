@@ -8,25 +8,23 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
     <title>Dashboard Template for Bootstrap 3.3.6 Documentation - BootstrapDocs</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
 
-
-
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-   <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -107,79 +105,20 @@
           </div>
 
           <h2 class="sub-header">Inventory Items</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Dishes</th>
-                  <th>Cost to Make</th>
-                  <th>Item Sell Price</th>
-                  <th>Number Sold</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td id="menuItemName0"></td>
-                  <td id="itemFoodCost0"></td>
-                  <td id="itemSellPrice0"></td>
-                  <td id="numberSold0"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName1"></td>
-                  <td id="itemFoodCost1"></td>
-                  <td id="itemSellPrice1"></td>
-                  <td id="numberSold1"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName2"></td>
-                  <td id="itemFoodCost2"></td>
-                  <td id="itemSellPrice2"></td>
-                  <td id="numberSold2"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName3"></td>
-                  <td id="itemFoodCost3"></td>
-                  <td id="itemSellPrice3"></td>
-                  <td id="numberSold3"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName4"></td>
-                  <td id="itemFoodCost4"></td>
-                  <td id="itemSellPrice4"></td>
-                  <td id="numberSold4"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName5"></td>
-                  <td id="itemFoodCost5"></td>
-                  <td id="itemSellPrice5"></td>
-                  <td id="numberSold5"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName6"></td>
-                  <td id="itemFoodCost6"></td>
-                  <td id="itemSellPrice6"></td>
-                  <td id="numberSold6"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName7"></td>
-                  <td id="itemFoodCost7"></td>
-                  <td id="itemSellPrice7"></td>
-                  <td id="numberSold7"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName8"></td>
-                  <td id="itemFoodCost8"></td>
-                  <td id="itemSellPrice8"></td>
-                  <td id="numberSold8"></td>
-                </tr>
-                <tr>
-                  <td id="menuItemName9"></td>
-                  <td id="itemFoodCost9"></td>
-                  <td id="itemSellPrice9"></td>
-                  <td id="numberSold9"></td>
-                </tr>
-              </tbody>
-            </table>
+          <div>
+            <form method="post" action="server.php" >
+              <div class="input-group">
+                <label>Name</label>
+                <input type="text" name="name" value="">
+              </div>
+              <div class="input-group">
+                <label>Address</label>
+                <input type="text" name="address" value="">
+              </div>
+              <div class="input-group">
+                <button class="btn" type="submit" name="Add Item" >Add Item</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -204,7 +143,7 @@
   <script type="text/javascript"> 
     
     var settings = {
-      "url": "http://localhost:8080/api/read.php",
+      "url": "http://localhost:8080/BrxAPI/api/read.php",
       "method": "GET",
       "timeout": 0,
     };
@@ -212,7 +151,7 @@
     $.ajax(settings).done(function (response) {
       console.log(response);
 //Menu Item Name
-          for (let index = 0; index < response.body.length; index++) {
+            for (let index = 0; index < response.body.length; index++) {
              var content = response.body[index].menuItemName + "</br>";
              $("#menuItemName" + index).append(content);           
            }
